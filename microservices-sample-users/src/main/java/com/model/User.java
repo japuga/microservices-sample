@@ -14,7 +14,7 @@ public class User {
 	private long id;
 	private String name;
 	private String lName;
-	private Address address;
+	//private Address address;
 	
 	@OneToMany
 	private List<Account> account;
@@ -22,12 +22,12 @@ public class User {
 	
 	
 	
-	public User(Long id, String name, String lName, Address address) {
+	public User(Long id, String name, String lName) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lName = lName;
-		this.address = address;
+		//this.address = address;
 	}
 	public Long getId() {
 		return id;
@@ -47,13 +47,13 @@ public class User {
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	public Address getAddress() {
+	/*public Address getAddress() {
 		return address;
 	}
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	
+	*/
 	
 	
 

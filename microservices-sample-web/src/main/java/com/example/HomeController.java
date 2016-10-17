@@ -23,4 +23,10 @@ public class HomeController {
 		return "listusers";
 		
 	}
+	
+	@RequestMapping("/")
+	public String home(){
+		
+		return "index";
+	}
 }
