@@ -18,19 +18,19 @@ import com.service.UserService;
 @WebAppConfiguration
 public class MicroservicesSampleUsersApplicationTests {
 
-	//@Autowired
-	//UserService userService;
-	
 	@Autowired
-	WebApplicationContext wac;
+	UserService userService;
 	
+/*	@Autowired
+	WebApplicationContext wac;
+*/	
 	/*@Test
 	public void contextLoads() {
 	}*/
 	
 	@Test
 	public void testSave(){
-		UserService userService = wac.getBean(UserService.class);
+		//UserService userService = wac.getBean(UserService.class);
 		User user = new User((long) 1000, "James", "John"); 
 		
 		userService.save(user);

@@ -11,7 +11,7 @@ import com.repository.UserRepository;
 import com.service.UserService;
 
 @Service
-@Repository
+//@Repository
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
