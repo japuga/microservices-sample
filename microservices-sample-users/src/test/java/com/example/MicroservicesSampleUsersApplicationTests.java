@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.model.User;
 import com.service.UserService;
@@ -17,8 +18,11 @@ import com.service.UserService;
 @WebAppConfiguration
 public class MicroservicesSampleUsersApplicationTests {
 
+	//@Autowired
+	//UserService userService;
+	
 	@Autowired
-	UserService userService;
+	WebApplicationContext wac;
 	
 	/*@Test
 	public void contextLoads() {
@@ -26,11 +30,12 @@ public class MicroservicesSampleUsersApplicationTests {
 	
 	@Test
 	public void testSave(){
-		
-	User user = new User((long) 1000, "James", "John"); 
+		UserService userService = wac.getBean(UserService.class);
+		User user = new User((long) 1000, "James", "John"); 
 		
 		userService.save(user);
 		
+		System.out.println(userService.getUserById((long) 1000).getlName());
 		assertTrue(userService.getUserById((long) 1000).getName()=="James");
 		//assertThat("James").isEqualTo("John");
 	}

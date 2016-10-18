@@ -9,6 +9,9 @@ import javax.persistence.OneToMany;
 @Entity
 public class User {
 	
+	public User(){
+		
+	}
 	
 	@Id
 	private long id;

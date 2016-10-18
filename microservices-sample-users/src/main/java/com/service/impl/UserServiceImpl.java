@@ -3,11 +3,15 @@ package com.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.model.User;
 import com.repository.UserRepository;
 import com.service.UserService;
 
+@Service
+@Repository
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
