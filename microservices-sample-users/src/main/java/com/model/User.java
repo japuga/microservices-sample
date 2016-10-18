@@ -1,5 +1,6 @@
 package com.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,8 +18,8 @@ public class User {
 	private String lastName;
 	//private Address address;
 	
-	@OneToMany
-	private List<Account> account;
+	
+	
 	
 	
 	public User(){
@@ -50,6 +51,11 @@ public class User {
 	public void setLastName(String lName) {
 		this.lastName = lName;
 	}
+
+
+
+	
+	
 	/*public Address getAddress() {
 		return address;
 	}
