@@ -2,18 +2,20 @@ package com.example;
 
 public class User {
 
-	private int uid;
+	private int id;
 	
 	private String firstName;
 	
 	private String lastName;
 
-	public int getUid() {
-		return uid;
+	
+
+	public int getId() {
+		return id;
 	}
 
-	public void setUid(int uid) {
-		this.uid = uid;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {

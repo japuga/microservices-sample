@@ -34,8 +34,9 @@ public class MicroservicesSampleUsersApplication {
 		
 	}
 	
-@Autowired
-	UserService userService;
+
+	@Autowired
+	UserService userService = new UserServiceImpl();
 	
 	
 	@PostConstruct
