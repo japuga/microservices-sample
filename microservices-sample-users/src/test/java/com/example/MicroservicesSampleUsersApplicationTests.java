@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.model.User;
 import com.service.UserService;
@@ -20,22 +21,33 @@ public class MicroservicesSampleUsersApplicationTests {
 	/*@Autowired
 	UserService userService;*/
 	
-	//UserService userService = new UserServiceImpl();
+
+	UserService userService = new UserServiceImpl();
 	
-@Test
-	public void contextLoads() {
-	}
+
+
+
 	
 	@Test
 	public void testSave(){
+
 		
-	//User user = new User((long) 100, "James", "John"); 
-		//User user = new User();
-		//userService.save(user);
+	
+		
+
 		
 		//System.out.println("User name: "+userService.getUserById((long) 100).getFirstName());
 		//assertTrue(userService.getUserById((long) 100).getFirstName().equals("James"));
-		//assertThat("James").isEqualTo("John");
+
+		//UserService userService = wac.getBean(UserService.class);
+		User user = new User((long) 1000, "James", "John"); 
+		
+		userService.save(user);
+		
+		
+		assertTrue(userService.getUserById((long) 1000).getFirstName()=="James");
+
+		
 		assertTrue("James"=="James");
 	}
 

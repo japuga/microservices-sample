@@ -6,6 +6,10 @@ import java.util.List;
 
 
 
+
+import org.springframework.stereotype.Component;
+
+
 import com.model.User;
 
 public interface UserService {
