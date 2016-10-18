@@ -18,7 +18,7 @@ import com.service.UserService;
 public class MicroservicesSampleUsersApplicationTests {
 
 	@Autowired
-	UserService userService;
+	UserService userService; 
 	
 	@Test
 	public void testSave(){

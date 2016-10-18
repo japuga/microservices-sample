@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,18 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
+	@Autowired
+	HomeControllerHandler handler;
+	
 	@RequestMapping(method=RequestMethod.GET, path="/users")
 	public String getUsers(Model model, HttpServletRequest request){
-		List<User> users = new ArrayList<User>();
-		User user = new User();
-		user.setFirstName("Javier");
-		user.setLastName("Puente");
-		user.setUid(100);
-		users.add(user);
+		List<User> users = handler.getUsers();
 		model.addAttribute("users", users);
 	
-		//request.getSession().setAttribute("users", users);
-		
 		return "listusers";
 		
 	}
