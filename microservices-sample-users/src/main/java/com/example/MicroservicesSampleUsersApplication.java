@@ -15,6 +15,8 @@ import com.model.User;
 import com.service.UserService;
 import com.service.impl.UserServiceImpl;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 
 
 @EnableAutoConfiguration
@@ -32,8 +34,8 @@ public class MicroservicesSampleUsersApplication {
 		
 	}
 	
-	/*//@Autowired
-	UserService userService = new UserServiceImpl();
+@Autowired
+	UserService userService;
 	
 	
 	@PostConstruct
@@ -45,5 +47,11 @@ public class MicroservicesSampleUsersApplication {
 		user.setId((long) 100);
 		
 		userService.save(user);
-	}*/
+		
+		
+		
+	}
+	
+	
+	
 }
