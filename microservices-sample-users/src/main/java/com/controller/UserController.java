@@ -3,7 +3,9 @@ package com.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.model.User;
@@ -15,7 +17,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/getUsers")
+	@RequestMapping("/users")
 	public List<User> getAllUsers(){
 		
 		
@@ -23,9 +25,15 @@ public class UserController {
 		
 	}
 	
-	@RequestMapping("/addUser")
+	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	public void save(User user){
 		
 		userService.save(user);
+	}
+	
+	@RequestMapping(value="/userById/{userId}", method=RequestMethod.GET)
+	public User getUserById(@PathVariable("userId") Long userId){
+		
+		return userService.getUserById(userId);
 	}
 }

@@ -12,21 +12,23 @@ public class User {
 	
 	@Id
 	private long id;
-	private String name;
-	private String lName;
+	private String firstName;
+	private String lastName;
 	//private Address address;
 	
 	@OneToMany
 	private List<Account> account;
 	
 	
-	
+	public User(){
+		
+	}
 	
 	public User(Long id, String name, String lName) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.lName = lName;
+		this.firstName = name;
+		this.lastName = lName;
 		//this.address = address;
 	}
 	public Long getId() {
@@ -35,17 +37,17 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String name) {
+		this.firstName = name;
 	}
-	public String getlName() {
-		return lName;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setLastName(String lName) {
+		this.lastName = lName;
 	}
 	/*public Address getAddress() {
 		return address;

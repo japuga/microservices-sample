@@ -1,9 +1,16 @@
 package com.example;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+import com.model.User;
+import com.service.UserService;
+import com.service.impl.UserServiceImpl;
 
 
 
@@ -16,5 +23,21 @@ public class MicroservicesSampleUsersApplication {
 		
 		System.setProperty("spring.config.name", "user-server");
 		SpringApplication.run(MicroservicesSampleUsersApplication.class, args);
+		
 	}
+	
+	/*//@Autowired
+	UserService userService = new UserServiceImpl();
+	
+	
+	@PostConstruct
+	public void intUsers(){
+		
+		User user = new User();
+		user.setFirstName("James");
+		user.setLastName("Nani");
+		user.setId((long) 100);
+		
+		userService.save(user);
+	}*/
 }
