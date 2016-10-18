@@ -13,6 +13,10 @@ public class Account {
 	private int accountNo;
 	
 	private String type;
+	
+	public Account(){
+		
+	}
 
 	public Account(long accountId, int accountNo, String type) {
 		super();

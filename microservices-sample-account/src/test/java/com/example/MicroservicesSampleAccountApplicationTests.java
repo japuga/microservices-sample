@@ -4,12 +4,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.model.Account;
-import com.repository.AccountRepository;
+import com.repository.AccountRepositoryInterface;
 
 
 
@@ -19,7 +19,9 @@ import com.repository.AccountRepository;
 public class MicroservicesSampleAccountApplicationTests {
 
 	
-	AccountRepository accountRepository = new AccountRepository();
+	@Autowired
+	AccountRepositoryInterface accountRepository;
+	
 	@Test
 	public void contextLoads() {
 	}
@@ -28,15 +30,12 @@ public class MicroservicesSampleAccountApplicationTests {
 	@Test
 	public void saveReterievDataTest(){
 		
-		Account account = new Account(100, 11111, "checking");
 		
-		accountRepository.saveAccount(account);
 		
-		//asserTrue(accountRepository.getAccountByNo(11111).getAccountId().equals(100));
+		//assertTrue(accountRepository.findOne((long) 11111)).getType().equals("checking"));
 		
-		System.out.println("Account Type: "+accountRepository.getAccountByNo(11111).getType());
-		assertTrue("James"=="James");
-	
+		assertTrue(accountRepository.findOne((long) 200).getType().equals("checking"));
+
 	}
 
 }

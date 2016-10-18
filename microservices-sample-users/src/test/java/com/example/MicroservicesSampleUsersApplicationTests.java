@@ -49,5 +49,23 @@ public class MicroservicesSampleUsersApplicationTests {
 		
 		
 	}
+	
+	@Test
+	public void testSave1(){
+
+		
+		
+		
+	
+		//System.out.println("user name: "+ userService.getUserById((long) 100).getLastName());
+
+		
+		
+		
+		assertTrue(userService.getUserById((long) 100).getFirstName().equals("James"));
+
+		
+		
+	}
 
 }
