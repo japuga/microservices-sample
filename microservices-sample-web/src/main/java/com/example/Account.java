@@ -1,46 +1,52 @@
 package com.example;
 
 public class Account {
+	
+	
 
-	private int accountId;
+	private long accountId;
 	
-	private int uid;
+	private int accountNo;
 	
-	private String accountNo;
+	private String type;
 	
-	private double balance;
+	public Account(){
+		
+	}
 
-	public int getAccountId() {
+	public Account(long accountId, int accountNo, String type) {
+		super();
+		this.accountId = accountId;
+		this.accountNo = accountNo;
+		this.type = type;
+	}
+
+	public long getAccountId() {
 		return accountId;
 	}
 
-	public void setAccountId(int accountId) {
+	public void setAccountId(long accountId) {
 		this.accountId = accountId;
 	}
 
-	public int getUid() {
-		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
-
-	public String getAccountNo() {
+	public int getAccountNo() {
 		return accountNo;
 	}
 
-	public void setAccountNo(String accountNo) {
+	public void setAccountNo(int accountNo) {
 		this.accountNo = accountNo;
 	}
 
-	public double getBalance() {
-		return balance;
+	public String getType() {
+		return type;
 	}
 
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setType(String type) {
+		this.type = type;
 	}
 	
-		
+	
+	
+	
+
 }

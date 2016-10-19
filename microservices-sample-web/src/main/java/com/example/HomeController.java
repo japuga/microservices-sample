@@ -37,13 +37,9 @@ public class HomeController {
 
 	@RequestMapping(method=RequestMethod.GET, path="/users/{uid}/accounts")
 	public String getAccounts(@PathVariable  int uid, Model model){
-		System.out.println(uid);
-		List<Account> accounts = new ArrayList<Account>();
-		Account account = new Account();
-		account.setAccountId(201);
-		account.setAccountNo("102313");
-		account.setBalance(500.00);
-		accounts.add(account);
+		List<Account> accounts = handler.getAccounts(uid);
+		
+		
 		model.addAttribute("accounts", accounts);
 		return "listaccounts";
 

@@ -3,10 +3,14 @@ package com.example;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -14,6 +18,10 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class HomeControllerHandler {
 
+	
+	@Autowired
+	DiscoveryClient discoveryClient;
+	
 	public List<User> getUsersLocal(){
 		List<User> users = new ArrayList<User>();
 		User user = new User();
@@ -29,14 +37,15 @@ public class HomeControllerHandler {
 		RestTemplate template = new RestTemplate();
 		List<User> users = new ArrayList<User>();
 		URI uri;
+		List<ServiceInstance> instances = discoveryClient.getInstances("user-service");
+		ServiceInstance instance = instances.iterator().next();
 		try {
-			uri = new URI("http://localhost:2222/users");
-			//users = template.getForObject(uri, List.class);
-			ResponseEntity<List> responseEntities = template.getForEntity(uri, List.class);
-			//users = responseEntities.getBody();
-			//System.out.println(responseEntities.getBody().getClass().getName());
+			System.out.println(instance.getUri() +"/users");
+			//uri = new URI("http://localhost:2222/users");
+			uri = new URI(instance.getUri() +"/users");
 			
-			//LinkedHashMap map = (LinkedHashMap)responseEntities.getBody().iterator().next();
+			ResponseEntity<List> responseEntities = template.getForEntity(uri, List.class);
+			
 			
 			for(Iterator<LinkedHashMap> itr = responseEntities.getBody().iterator(); itr.hasNext(); ){
 				LinkedHashMap map = itr.next();
@@ -65,5 +74,40 @@ public class HomeControllerHandler {
 	
 	public void addUser(){
 		
+	}
+
+	public List<Account> getAccountsLocal() {
+		List<Account> accounts = new ArrayList<Account>();
+		Account account = new Account();
+		account.setAccountId(201);
+		account.setAccountNo(102313);
+		//account.setBalance(500.00);
+		accounts.add(account);
+		
+		return accounts;
+	}
+	
+	public List<Account> getAccounts(int id) {
+		RestTemplate template = new RestTemplate();
+		List<Account> accounts = null;
+		Account[] accountsArray = null;
+		URI uri;
+		List<ServiceInstance> instances = discoveryClient.getInstances("account-service");
+		ServiceInstance instance = instances.iterator().next();
+		
+		try {
+			System.out.println(instance.getUri());
+			uri = new URI(instance.getUri()+ "/accountsByUserId/100");
+			//users = template.getForObject(uri, List.class);
+			ResponseEntity<Account[]> responseEntities = template.getForEntity(uri, Account[].class);
+			accountsArray = responseEntities.getBody();
+			if(accountsArray.length>0)
+				accounts = Arrays.asList(accountsArray);
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return accounts;
 	}
 }
