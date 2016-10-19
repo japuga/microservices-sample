@@ -98,7 +98,7 @@ public class HomeControllerHandler {
 		
 		try {
 			System.out.println(instance.getUri());
-			uri = new URI(instance.getUri()+ "/accountsByUserId/100");
+			uri = new URI(instance.getUri()+ "/accountsByUserId/"+id);
 			//users = template.getForObject(uri, List.class);
 			ResponseEntity<Account[]> responseEntities = template.getForEntity(uri, Account[].class);
 			accountsArray = responseEntities.getBody();
