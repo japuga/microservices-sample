@@ -10,14 +10,14 @@
 		<thead>
 			<tr>
 			 	<th>Account No</th>
-			 	<th>Balance</th>
+			 	<th>Type</th>
 			 	<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="account: ${accounts }">
 				<td th:text="${ account.accountNo}"></td>
-				<td th:text="${account.balance }"></td>
+				<td th:text="${account.type}"></td>
 				<td >Details</td>
 			</tr>
 		</tbody>
