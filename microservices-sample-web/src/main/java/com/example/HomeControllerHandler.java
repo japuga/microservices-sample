@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 public class HomeControllerHandler {
 
 	
+	
 	@Autowired
 	DiscoveryClient discoveryClient;
 	
@@ -40,7 +41,7 @@ public class HomeControllerHandler {
 		List<ServiceInstance> instances = discoveryClient.getInstances("user-service");
 		ServiceInstance instance = instances.iterator().next();
 		try {
-			System.out.println(instance.getUri() +"/users");
+			
 			//uri = new URI("http://localhost:2222/users");
 			uri = new URI(instance.getUri() +"/users");
 			
