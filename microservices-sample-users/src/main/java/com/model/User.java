@@ -3,7 +3,9 @@ package com.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -17,7 +19,6 @@ public class User {
 	private String firstName;
 	private String lastName;
 	//private Address address;
-	
 	
 	
 	
@@ -36,7 +37,7 @@ public class User {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -51,6 +52,9 @@ public class User {
 	public void setLastName(String lName) {
 		this.lastName = lName;
 	}
+
+	
+	
 
 
 

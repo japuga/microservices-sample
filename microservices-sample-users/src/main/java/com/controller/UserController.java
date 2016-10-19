@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.model.User;
 import com.service.UserService;
 
@@ -36,4 +37,10 @@ public class UserController {
 		
 		return userService.getUserById(userId);
 	}
+	
+	/*@RequestMapping(value="/accountByUserId/{userId}", method=RequestMethod.GET)
+	public List<Account> getAllAccount(@PathVariable("userId") Long userId){
+		
+		return userService.getUserById(userId).getAccounts();
+	}*/
 }

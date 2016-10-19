@@ -1,6 +1,9 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +31,14 @@ public class AccountController {
 	public Account getAccountByNo(@PathVariable("accountNo") int accountNo){
 		
 		return accountRepositoryInterface.findOne((long) accountNo);
+	}
+	
+	@RequestMapping(value="/accountsByUserId/{userId}", method=RequestMethod.GET)
+	public List<Account> getAllAccounts(@PathVariable("userId") long userId){
+		
+		return accountRepositoryInterface.findAccountsByUserId(userId);
+		
+		//accountRepositoryInterface.
 	}
 
 }

@@ -37,5 +37,18 @@ public class MicroservicesSampleAccountApplicationTests {
 		assertTrue(accountRepository.findOne((long) 200).getType().equals("checking"));
 
 	}
+	
+	@Test
+	public void reteriveAccountsByUserId(){
+		
+		
+		
+		//assertTrue(accountRepository.findOne((long) 11111)).getType().equals("checking"));
+		
+		//assertTrue(accountRepository.findOne((long) 200).getType().equals("checking"));
+		assertTrue(accountRepository.findAccountsByUserId(100).get(0).getType().equals("checking"));
+
+	}
+
 
 }

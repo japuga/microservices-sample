@@ -43,6 +43,7 @@ public class MicroservicesSampleAccountApplication {
 		account.setAccountId(200);
 		account.setAccountNo(11111);
 		account.setType("checking");
+		account.setUserId(100);
 		
 		accountRepository.save(account);
 		

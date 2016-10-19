@@ -1,5 +1,8 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +14,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 import com.model.User;
 import com.service.UserService;
-import com.service.impl.UserServiceImpl;
-
-import ch.qos.logback.core.net.SyslogOutputStream;
 
 
 
@@ -36,16 +37,22 @@ public class MicroservicesSampleUsersApplication {
 	
 
 	@Autowired
-	UserService userService = new UserServiceImpl();
+	UserService userService;
+	
 	
 	
 	@PostConstruct
 	public void intUsers(){
 		
+		
+		
+		
+		
 		User user = new User();
 		user.setFirstName("James");
 		user.setLastName("Nani");
 		user.setId((long) 100);
+		
 		
 		userService.save(user);
 		

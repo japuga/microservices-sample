@@ -2,6 +2,8 @@ package com.example;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +59,7 @@ public class MicroservicesSampleUsersApplicationTests {
 		
 		
 	
-		//System.out.println("user name: "+ userService.getUserById((long) 100).getLastName());
+		System.out.println("Output from Test1 user name: "+ userService.getUserById((long) 100).getLastName());
 
 		
 		
@@ -67,5 +69,7 @@ public class MicroservicesSampleUsersApplicationTests {
 		
 		
 	}
+	
+	
 
 }
